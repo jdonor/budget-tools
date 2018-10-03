@@ -1,0 +1,27 @@
+{
+  "name": "budget-tools",
+  "version": "1.0.0",
+  "description": "Tools for budgeting, using the YNAB API",
+  "main": "./pages/index.js",
+  "scripts": {
+    "test": "",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdonor/budget-tools.git"
+  },
+  "author": "Josiah Donor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdonor/budget-tools/issues"
+  },
+  "homepage": "https://github.com/jdonor/budget-tools#readme",
+  "dependencies": {
+    "next": "^7.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
