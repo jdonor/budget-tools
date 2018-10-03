@@ -23,6 +23,12 @@
   "dependencies": {
     "next": "^7.0.1",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "ynab": "^1.8.0"
+  },
+  "now": {
+    "env": {
+      "ACCESS_TOKEN": "@ynab-api-key"
+    }
   }
 }
