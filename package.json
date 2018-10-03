@@ -28,7 +28,8 @@
   },
   "now": {
     "env": {
-      "ACCESS_TOKEN": "@ynab-api-key"
+      "ACCESS_TOKEN": "@ynab-api-key",
+      "BUDGET_ID": "@budget-id"
     }
   }
 }

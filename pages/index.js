@@ -1,24 +1,25 @@
 const ynab = require('ynab');
 const ynabApi = new ynab.API(process.env.ACCESS_TOKEN);
+const budgetId = process.env.BUDGET_ID;
 
 const Index = props => (
   <div>
     <h1>Budget Tools</h1>
 
     <ul>
-      {props.budgets.map(budget => (
-        <li key={budget.id}>{budget.name}</li>
+      {props.categoryGroups.map(categoryGroup => (
+        <li key={categoryGroup.id}>{categoryGroup.name}</li>
       ))}
     </ul>
   </div>
 );
 
 Index.getInitialProps = async function() {
-  const response = await ynabApi.budgets.getBudgets();
-  const budgets = await response.data.budgets;
+  const response = await ynabApi.categories.getCategories(budgetId);
+  const categoryGroups = await response.data.category_groups;
 
   return {
-    budgets: budgets,
+    categoryGroups: categoryGroups,
   };
 };
 
