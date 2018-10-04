@@ -2,6 +2,9 @@ const ynab = require('ynab');
 const ynabApi = new ynab.API(process.env.ACCESS_TOKEN);
 const budgetId = process.env.BUDGET_ID;
 
+const internalMasterCategoryId = '4a23e6b1-9f17-4dc5-ab08-7f2c6f162b8f';
+const hiddenCategoriesId = 'fe740ab3-0cd1-478d-8ed9-9314baa9e949';
+
 const Index = props => (
   <div>
     <h1>Budget Tools</h1>
@@ -23,10 +26,15 @@ const Index = props => (
 
 Index.getInitialProps = async function() {
   const response = await ynabApi.categories.getCategories(budgetId);
-  const categoryGroups = await response.data.category_groups;
+  const categoryGroups = response.data.category_groups;
+  const filteredCategoryGroups = categoryGroups.filter(
+    categoryGroup =>
+      categoryGroup.id !== internalMasterCategoryId &&
+      categoryGroup.id !== hiddenCategoriesId
+  );
 
   return {
-    categoryGroups: categoryGroups,
+    categoryGroups: filteredCategoryGroups,
   };
 };
 
