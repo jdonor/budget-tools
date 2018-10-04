@@ -8,7 +8,14 @@ const Index = props => (
 
     <ul>
       {props.categoryGroups.map(categoryGroup => (
-        <li key={categoryGroup.id}>{categoryGroup.name}</li>
+        <li key={categoryGroup.id}>
+          {categoryGroup.name}
+          <ul>
+            {categoryGroup.categories.map(category => (
+              <li key={category.id}>{category.name}</li>
+            ))}
+          </ul>
+        </li>
       ))}
     </ul>
   </div>
